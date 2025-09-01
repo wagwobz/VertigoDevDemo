@@ -4,6 +4,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RewardSO : ScriptableObject
 {
-    public int Id;
-    public Sprite Sprite;
+    public uint id;
+    public Sprite sprite;
 }

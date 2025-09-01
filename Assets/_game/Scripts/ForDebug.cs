@@ -9,7 +9,7 @@ public class ForDebug : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             print("Space key pressed");
-            var rewards = GameObject.FindObjectsOfType<UiSpinnerRewardPreserveRotation>(false);
+            var rewards = GameObject.FindObjectsOfType<SpinnerReward>(false);
             var topObject = rewards.OrderByDescending(o => o.transform.position.y).FirstOrDefault();
             print(topObject.gameObject.name);
         }
