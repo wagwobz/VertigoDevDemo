@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42cea3a9a01655545b438d255169b1b8, type: 3}
-  m_Name: Sample2
+  m_Name: goldx1
   m_EditorClassIdentifier: 
-  id: 99
-  sprite: {fileID: 21300000, guid: 254c0d8813900d34a86830324697fcda, type: 3}
+  id: 6
+  sprite: {fileID: 21300000, guid: 411b072aa1519754cb51b07907d8f700, type: 3}
   baseMultiplier: 1

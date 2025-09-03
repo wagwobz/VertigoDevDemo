@@ -11,10 +11,16 @@ public class SpinnerReward : MonoBehaviour
     [SerializeField] Image rewardImage;
     [SerializeField] TextMeshProUGUI rewardTmpUgui;
     [SerializeField] int amount = 1;
-
+    [SerializeField] int currentMultiplier = 0;
     public void Init(RewardSO rewardSo, int multiplier)
     {
-        UpdateValues(rewardSo, multiplier*rewardSo.baseMultiplier);
+        currentMultiplier = multiplier*rewardSo.baseMultiplier;
+        UpdateValues(rewardSo, currentMultiplier);
+    }
+
+    public (RewardSO rewardSo, int multiplier) GetRewardInfo()
+    {
+        return (rewardSo,currentMultiplier);
     }
 
     void OnValidate()
@@ -25,6 +31,7 @@ public class SpinnerReward : MonoBehaviour
     void UpdateValues(RewardSO rewardSo,int amount)
     {
         if (rewardSo == null) return;
+        this.rewardSo = rewardSo;
         rewardImage.sprite = rewardSo.sprite;
         rewardTmpUgui.text = $"x{amount}";
     }

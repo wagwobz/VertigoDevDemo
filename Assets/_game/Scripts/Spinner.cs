@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Spinner : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] SpinnerReward[]  rewards;
 
     public void Init(RewardSetSO rewardSetSO,int multiplier,Sprite spinnerSprite)
@@ -18,7 +19,7 @@ public class Spinner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Spin();
         }
@@ -31,6 +32,7 @@ public class Spinner : MonoBehaviour
     [Range(0, 22.3f)] [SerializeField] float overShootAngleMin = 10f;
 
 
+    int _currentRewardIndex;
     public void Spin()
     {
         var overShootAngleAbsolute = Random.Range(overShootAngleMin, overShootAngleMax);
@@ -38,6 +40,7 @@ public class Spinner : MonoBehaviour
         var overShootAngle = positiveNegativeRandom == 0 ? -overShootAngleAbsolute: overShootAngleAbsolute;
         
         var rewardIndex = Random.Range(0, 8);
+        _currentRewardIndex = rewardIndex;
         print($"reward:{rewardIndex},overShoot:{overShootAngle}");
         var targetRotationAngle = numberOfTurns * 360f - rewardIndex * 45f + overShootAngle; 
         print($"targetRotationAngle:{targetRotationAngle}");
@@ -46,7 +49,14 @@ public class Spinner : MonoBehaviour
         
         transform.DORotate(targetRotationVector, 7f, RotateMode.FastBeyond360).SetEase(ease).OnComplete(() =>
         {
-            transform.DORotate(targetOverShootCorrection, 1f, RotateMode.WorldAxisAdd).SetEase(Ease.OutBounce);
+            transform.DORotate(targetOverShootCorrection, 1f, RotateMode.WorldAxisAdd).SetEase(Ease.OutBounce).onComplete += Result;
         });
+    }
+
+    void Result()
+    {
+        var currentReward = rewards[_currentRewardIndex];
+        var (rewardSo, rewardMultiplier) = currentReward.GetRewardInfo();
+        gameManager.LevelEnd(rewardSo, rewardMultiplier);
     }
 }

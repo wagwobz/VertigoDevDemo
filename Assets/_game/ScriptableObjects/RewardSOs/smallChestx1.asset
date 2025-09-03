@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cea3a9a01655545b438d255169b1b8, type: 3}
   m_Name: smallChestx1
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   sprite: {fileID: 21300000, guid: f5ebbe1f891f24249b75599f3d38a854, type: 3}
-  baseMultiplier: 0
+  baseMultiplier: 1

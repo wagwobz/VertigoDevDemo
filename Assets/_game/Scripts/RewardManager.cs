@@ -18,6 +18,7 @@ public class RewardManager : MonoBehaviour
 
     public (RewardSetSO rewardSetSo, Sprite spinnerSprite, int multiplier) GetRewardSet(int currentLevel)
     {
+        print(currentLevel);
         var multiplier = 1;
         if (currentLevel == 1)
         {

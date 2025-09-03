@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7368bbe63441d6ab4d3bff4b0a8b19, type: 3}
-  m_Name: New Reward Set SO
+  m_Script: {fileID: 11500000, guid: 42cea3a9a01655545b438d255169b1b8, type: 3}
+  m_Name: cashx30
   m_EditorClassIdentifier: 
-  spinnerBackground: {fileID: 21300000, guid: 45ec1b6800e57ab4986566c781374e0f, type: 3}
-  rewards: []
+  id: 0
+  sprite: {fileID: 21300000, guid: 78751b7b6aeb2eb4b8d042fbdafbcc44, type: 3}
+  baseMultiplier: 30
