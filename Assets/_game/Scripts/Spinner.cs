@@ -8,20 +8,13 @@ public class Spinner : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] SpinnerReward[]  rewards;
 
+    bool _spinning;
     public void Init(RewardSetSO rewardSetSO,int multiplier,Sprite spinnerSprite)
     {
         rewards = GetComponentsInChildren<SpinnerReward>();
         for (int i = 0; i < rewards.Length; i++)
         {
             rewards[i].Init(rewardSetSO.rewards[i], multiplier);
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Spin();
         }
     }
 
@@ -35,6 +28,8 @@ public class Spinner : MonoBehaviour
     int _currentRewardIndex;
     public void Spin()
     {
+        if (_spinning) return;
+        _spinning = true;
         var overShootAngleAbsolute = Random.Range(overShootAngleMin, overShootAngleMax);
         var positiveNegativeRandom = Random.Range(0, 2);
         var overShootAngle = positiveNegativeRandom == 0 ? -overShootAngleAbsolute: overShootAngleAbsolute;
@@ -55,6 +50,7 @@ public class Spinner : MonoBehaviour
 
     void Result()
     {
+        _spinning = false;
         var currentReward = rewards[_currentRewardIndex];
         var (rewardSo, rewardMultiplier) = currentReward.GetRewardInfo();
         gameManager.LevelEnd(rewardSo, rewardMultiplier);
