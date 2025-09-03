@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: bigChestx1
   m_EditorClassIdentifier: 
   id: 3
-  sprite: {fileID: 21300000, guid: 5017508f3cae8ce49b911371fb831507, type: 3}
+  sprite: {fileID: 21300000, guid: 254c0d8813900d34a86830324697fcda, type: 3}
   baseMultiplier: 1

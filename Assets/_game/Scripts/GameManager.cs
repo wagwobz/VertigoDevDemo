@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Spinner spinner;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] UiFailPanel uiFailPanel;
+    [SerializeField] Earnings earnings;
 
     int _currentLevel = 0;
     
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         var rewardSet = rewardManager.GetRewardSet(currentLevel);
         spinner.Init(rewardSet.rewardSetSo, rewardSet.multiplier, rewardSet.spinnerSprite);
         buttonManager.SpinButton.gameObject.SetActive(true);
-        buttonManager.ClaimAllButton.gameObject.SetActive(true);
+        if (currentLevel > 1) buttonManager.ClaimAllButton.gameObject.SetActive(true);
         
         //activate spin button and claim all button
     }
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
             print("Fail");
             return;
         }
-        ClaimReward(rewardSo, multiplier);
+        earnings.EarnReward(rewardSo, multiplier);
         PrepareLevel();
         print("Reward Claimed");
         
@@ -57,11 +58,6 @@ public class GameManager : MonoBehaviour
         buttonManager.SpinButton.Button.onClick.AddListener(Spin);
         buttonManager.ClaimAllButton.Button.onClick.AddListener(ClaimAllRewards);
         buttonManager.RestartButton.Button.onClick.AddListener(Restart);
-    }
-
-    void ClaimReward(RewardSO rewardSo, int multiplier)
-    {
-        print("Claiming reward");
     }
 
     void ClaimAllRewards()
