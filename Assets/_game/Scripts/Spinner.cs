@@ -1,10 +1,21 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Spinner : MonoBehaviour
 {
-    
+    [SerializeField] SpinnerReward[]  rewards;
+
+    public void Init(RewardSetSO rewardSetSO,int multiplier,Sprite spinnerSprite)
+    {
+        rewards = GetComponentsInChildren<SpinnerReward>();
+        for (int i = 0; i < rewards.Length; i++)
+        {
+            rewards[i].Init(rewardSetSO.rewards[i], multiplier);
+        }
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -20,7 +31,7 @@ public class Spinner : MonoBehaviour
     [Range(0, 22.3f)] [SerializeField] float overShootAngleMin = 10f;
 
 
-    void Spin()
+    public void Spin()
     {
         var overShootAngleAbsolute = Random.Range(overShootAngleMin, overShootAngleMax);
         var positiveNegativeRandom = Random.Range(0, 2);

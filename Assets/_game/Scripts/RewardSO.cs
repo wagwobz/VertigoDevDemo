@@ -6,4 +6,5 @@ public class RewardSO : ScriptableObject
 {
     public uint id;
     public Sprite sprite;
+    public int baseMultiplier;
 }
