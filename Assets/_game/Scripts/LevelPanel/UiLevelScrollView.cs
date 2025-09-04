@@ -11,7 +11,7 @@ public class UiLevelScrollView : MonoBehaviour
     [SerializeField] RectTransform content;
     int _childObjectWidth = 100;
     HorizontalLayoutGroup _layout;
-    float _currentAnchorPositionX = 1702.58f;
+    float _currentAnchorPositionX = 1584.771f;
     [SerializeField] UiLevelScrollViewLevelCardManager levelCardManager;
     Vector2 _startingAnchorPosition;
 
@@ -22,10 +22,9 @@ public class UiLevelScrollView : MonoBehaviour
 
     public void Init(int currentLevel)
     {
-        var contentAp =  content.anchoredPosition;
-        contentAp.x = 1702.58f;
-        content.anchoredPosition = contentAp;
-        _startingAnchorPosition = contentAp;
+        scrollRect.horizontalNormalizedPosition = 0f;
+        _startingAnchorPosition = content.anchoredPosition;
+        
         levelCardManager.Initialize(currentLevel);
     }
 
