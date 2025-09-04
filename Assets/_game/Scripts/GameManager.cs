@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
 
     void ClaimAllRewards()
     {
-        Application.Quit();
         Restart();
     }
 
