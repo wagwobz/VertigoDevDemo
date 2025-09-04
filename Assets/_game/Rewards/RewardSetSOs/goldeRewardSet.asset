@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7368bbe63441d6ab4d3bff4b0a8b19, type: 3}
+  m_Name: goldeRewardSet
+  m_EditorClassIdentifier: 
+  spinnerBackground: {fileID: 21300000, guid: f0f5edadedcb8d04fa5051360bcbaede, type: 3}
+  rewards:
+  - {fileID: 11400000, guid: 7753f9a3a57e3e143a7337643ec7122e, type: 2}
+  - {fileID: 11400000, guid: f1e436282cc80834c89a60055f1dc157, type: 2}
+  - {fileID: 11400000, guid: 3507db2a52099154a92d1ae93e48a5b7, type: 2}
+  - {fileID: 11400000, guid: 38fa0de6d6470394f8e8425993cf2216, type: 2}
+  - {fileID: 11400000, guid: c5a9438ff4a7c3041be9b7209ee954de, type: 2}
+  - {fileID: 11400000, guid: 3fa84b60c8996e24a89bdda1083fa2c4, type: 2}
+  - {fileID: 11400000, guid: 7e75370e01643ea4bad7e61931feaf38, type: 2}
+  - {fileID: 11400000, guid: 655a10d204d444545969c39c9dc4cae2, type: 2}

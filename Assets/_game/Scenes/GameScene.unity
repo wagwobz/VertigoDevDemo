@@ -620,9 +620,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -809,6 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1976943921}
   rewards: []
+  spinnerBackground: {fileID: 723882937}
+  pinImage: {fileID: 1140979102}
   numberOfTurns: 7
   spinDuration: 7
   ease: 13
@@ -928,7 +930,7 @@ GameObject:
   - component: {fileID: 241657622}
   - component: {fileID: 241657621}
   m_Layer: 5
-  m_Name: ui_failPanel_background
+  m_Name: ui_failPanel_background_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,9 +1004,8 @@ GameObject:
   m_Component:
   - component: {fileID: 255310902}
   - component: {fileID: 255310905}
-  - component: {fileID: 255310904}
   - component: {fileID: 255310903}
-  - component: {fileID: 255310906}
+  - component: {fileID: 255310907}
   m_Layer: 5
   m_Name: ui_levelBar_scrollView
   m_TagString: Untagged
@@ -1028,10 +1029,10 @@ RectTransform:
   m_Father: {fileID: 1033716682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -25, y: 0}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255310903
 MonoBehaviour:
@@ -1063,36 +1064,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &255310904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255310901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &255310905
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1101,7 +1072,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255310901}
   m_CullTransparentMesh: 1
---- !u!114 &255310906
+--- !u!114 &255310907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1110,13 +1081,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 255310901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7259911155cf4b4388185545598e3f69, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cf766aa2b7a55b45b851118391299c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 255310903}
+  viewport: {fileID: 1682809943}
   content: {fileID: 1081523307}
-  currentLevel: 12
-  snapSpeed: 10
+  levelCardManager: {fileID: 1081523311}
 --- !u!1001 &265031157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1570,7 +1541,7 @@ GameObject:
   - component: {fileID: 401474557}
   - component: {fileID: 401474556}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ui_background_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2402,7 +2373,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 150}
+  m_SizeDelta: {x: 0, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &665557100
 MonoBehaviour:
@@ -2424,7 +2395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Safe Zone
+  m_text: Spin To Win
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2895,7 +2866,7 @@ GameObject:
   - component: {fileID: 723882938}
   - component: {fileID: 723882937}
   m_Layer: 5
-  m_Name: ui_spinWheel_spinner_background
+  m_Name: ui_spinWheel_spinner_background_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3385,7 +3356,7 @@ GameObject:
   - component: {fileID: 950406736}
   - component: {fileID: 950406738}
   m_Layer: 5
-  m_Name: ui_rewardPanel
+  m_Name: ui_rewardPanel_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3580,7 +3551,7 @@ GameObject:
   - component: {fileID: 1033716684}
   - component: {fileID: 1033716683}
   m_Layer: 5
-  m_Name: ui_levelBar
+  m_Name: ui_levelBar_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3620,7 +3591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3700,7 +3671,6 @@ GameObject:
   - component: {fileID: 1081523307}
   - component: {fileID: 1081523309}
   - component: {fileID: 1081523308}
-  - component: {fileID: 1081523310}
   - component: {fileID: 1081523311}
   m_Layer: 5
   m_Name: ui_levelBar_scrollView_viewport_content
@@ -3756,7 +3726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.0007324219, y: 0}
+  m_AnchoredPosition: {x: 947, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081523308
@@ -3799,20 +3769,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1081523310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081523306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf766aa2b7a55b45b851118391299c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewport: {fileID: 1682809943}
-  _currentLevel: 12
 --- !u!114 &1081523311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,9 +3778,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081523306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 741a65221f6b482696820ef029b831f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6aeed41c61f248a8b3e3dc1c4a0b3ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalBackgroundSprite: {fileID: 21300000, guid: 87083b9ba21a4814c8f62e7caf4eda42, type: 3}
+  currentLevelBackgroundSprite: {fileID: 21300000, guid: 9af7041ad5af66d4ba6055e7c6a44d33, type: 3}
+  safeZoneBackgroundSprite: {fileID: 21300000, guid: 54c6f6cd6c3d4d04abee2befcd4fe7b3, type: 3}
+  superZoneBackgroundSprite: {fileID: 21300000, guid: 2a88575b4ca24db4c96633c4fede3d29, type: 3}
   levelCards: []
 --- !u!1001 &1115248396
 PrefabInstance:
@@ -3928,6 +3888,82 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6876696027270145837, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
   m_PrefabInstance: {fileID: 1115248396}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1140979100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140979101}
+  - component: {fileID: 1140979103}
+  - component: {fileID: 1140979102}
+  m_Layer: 5
+  m_Name: ui_spinWheel_spinner_pinImage_value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1140979101
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140979100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1258889248}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100.00004}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1140979102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140979100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ac42c1d778da0e64eae59ee8f5173efc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1140979103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140979100}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1165538548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4367,6 +4403,7 @@ RectTransform:
   m_Children:
   - {fileID: 121685387}
   - {fileID: 665557099}
+  - {fileID: 1140979101}
   m_Father: {fileID: 422771201}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5173,7 +5210,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682809942}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5182,11 +5219,11 @@ RectTransform:
   m_Father: {fileID: 255310902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_SizeDelta: {x: 754.87, y: 100}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1682809944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5199,7 +5236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
+  m_ShowMaskGraphic: 1
 --- !u!114 &1682809945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5214,9 +5251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5538,8 +5575,8 @@ Camera:
   m_GameObject: {fileID: 1770730002}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.242969, g: 0.33925673, b: 0.49056602, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5942,7 +5979,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1864244007}
   - component: {fileID: 1864244010}
-  - component: {fileID: 1864244009}
   - component: {fileID: 1864244008}
   m_Layer: 5
   m_Name: ui_rewardPanel_scrollview
@@ -6002,36 +6038,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1864244009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864244006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1864244010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6243,6 +6249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1081523307}
     m_Modifications:
+    - target: {fileID: 6876696027230510020, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 87083b9ba21a4814c8f62e7caf4eda42, type: 3}
     - target: {fileID: 6876696027270145837, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6369,17 +6379,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbed87de8b0411a9ac2edb2e7d76ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingRewardSet: {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
+  startingRewardSet: {fileID: 11400000, guid: 1d0ac32cc3248d14caff463efcb266ae, type: 2}
   bronzeRewardSets:
-  - {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
-  - {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
-  - {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
-  - {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
-  silverRewardSet: {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
-  goldenRewardSet: {fileID: 11400000, guid: 2dc8b1511eb1eb84780925a2184930ce, type: 2}
+  - {fileID: 11400000, guid: ebecd0b9ed0074e4ba09afcd138bc84b, type: 2}
+  - {fileID: 11400000, guid: 30a4094d96f1206428ee9ee463a355b0, type: 2}
+  - {fileID: 11400000, guid: d5eb471b5381b08419b53b04856b4c32, type: 2}
+  - {fileID: 11400000, guid: a3e2778064adf164e8c5bc1ad5a11821, type: 2}
+  silverRewardSet: {fileID: 11400000, guid: 1d0ac32cc3248d14caff463efcb266ae, type: 2}
+  goldenRewardSet: {fileID: 11400000, guid: 1e607af4424a9284ba9df1a044b12fc9, type: 2}
   bronzeSpinnerSprite: {fileID: 21300000, guid: 45ec1b6800e57ab4986566c781374e0f, type: 3}
   silverSpinnerSprite: {fileID: 21300000, guid: 55a38a6bbb13a9442b29e4890b15ec61, type: 3}
   goldenSpinnerSprite: {fileID: 21300000, guid: f0f5edadedcb8d04fa5051360bcbaede, type: 3}
+  bronzePinSprite: {fileID: 21300000, guid: ac42c1d778da0e64eae59ee8f5173efc, type: 3}
+  silverPinSprite: {fileID: 21300000, guid: 02b6a934665ef7a44a32a1c27154d456, type: 3}
+  goldenPinSprite: {fileID: 21300000, guid: 3ef2ae2fb77666141bd50efe5907b909, type: 3}
 --- !u!114 &1976943921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6397,6 +6410,7 @@ MonoBehaviour:
   buttonManager: {fileID: 1976943923}
   uiFailPanel: {fileID: 1718499428}
   earnings: {fileID: 950406738}
+  levelScrollView: {fileID: 255310907}
 --- !u!4 &1976943922
 Transform:
   m_ObjectHideFlags: 0
@@ -6439,7 +6453,7 @@ GameObject:
   - component: {fileID: 1982625081}
   - component: {fileID: 1982625080}
   m_Layer: 5
-  m_Name: ui_spinWheel_spinner_background_1
+  m_Name: ui_spinWheel_spinner_backgroundStar_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6849,6 +6863,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1081523307}
     m_Modifications:
+    - target: {fileID: 6876696027230510020, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876696027230510020, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6876696027270145837, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6936,6 +6958,14 @@ PrefabInstance:
     - target: {fileID: 6876696027270145838, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
       propertyPath: m_Name
       value: ui_levelBar_scrollView_viewport_content_levelCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876696028040262184, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876696028040262184, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5229e4938ef2e543bbced206c2d18b5, type: 3}

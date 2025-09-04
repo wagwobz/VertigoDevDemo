@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7368bbe63441d6ab4d3bff4b0a8b19, type: 3}
+  m_Name: bronzeRewardSet 1
+  m_EditorClassIdentifier: 
+  spinnerBackground: {fileID: 21300000, guid: 45ec1b6800e57ab4986566c781374e0f, type: 3}
+  rewards:
+  - {fileID: 11400000, guid: 6167c9f7dbce63a43b8bdefaab7fb3e3, type: 2}
+  - {fileID: 11400000, guid: 7a3873caa9fc90e408288358aead1b1b, type: 2}
+  - {fileID: 11400000, guid: 64ed85700bff38249ad0e3d4dcff7b6d, type: 2}
+  - {fileID: 11400000, guid: 29089a63c1dfe3145ad3a8328650dd73, type: 2}
+  - {fileID: 11400000, guid: 0c8f5365ca7746a42b5f83dccbff92a1, type: 2}
+  - {fileID: 11400000, guid: 4b6784de25a45b5418ac982441c284c2, type: 2}
+  - {fileID: 11400000, guid: a5160c8e2b5dc6047b2a85c10ec59425, type: 2}
+  - {fileID: 11400000, guid: 0dc621e6902831c449337490bdde1861, type: 2}

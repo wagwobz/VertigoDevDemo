@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using DG.Tweening;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,29 +12,47 @@ public class GameManager : MonoBehaviour
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] UiFailPanel uiFailPanel;
     [SerializeField] Earnings earnings;
+    [SerializeField] UiLevelScrollView levelScrollView;
 
     int _currentLevel = 0;
     
     void Awake()
     {
+        Application.targetFrameRate = 60;
         PrepareButtons();
         PrepareLevel();
     }
 
-    void PrepareLevel()
+    void Start()
     {
-        _currentLevel++;
-        PrepareSpin(_currentLevel);
+        levelScrollView.Init(_currentLevel);
     }
 
-    void PrepareSpin(int currentLevel)
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PrepareLevel();
+        }
+    }
+
+    void PrepareLevel()
+    {
+        
+        _currentLevel++;
+        levelScrollView.UpdateAnchorPosition(_currentLevel);
+        StartCoroutine(PrepareSpin(_currentLevel));
+    }
+
+    IEnumerator PrepareSpin(int currentLevel)
     {
         var rewardSet = rewardManager.GetRewardSet(currentLevel);
-        spinner.Init(rewardSet.rewardSetSo, rewardSet.multiplier, rewardSet.spinnerSprite);
+        spinner.Init(rewardSet.rewardSetSo, rewardSet.multiplier, rewardSet.spinnerSprite, rewardSet.pinSprite);
+        
+        yield return new WaitForSeconds(1f);
+        
         buttonManager.SpinButton.gameObject.SetActive(true);
         if (currentLevel > 1) buttonManager.ClaimAllButton.gameObject.SetActive(true);
-        
-        //activate spin button and claim all button
     }
 
     public void LevelEnd(RewardSO rewardSo, int multiplier)
@@ -62,14 +84,15 @@ public class GameManager : MonoBehaviour
 
     void ClaimAllRewards()
     {
-        print("Claim all rewards");
+        Application.Quit();
+        Restart();
     }
 
     void Spin()
     {
         buttonManager.SpinButton.gameObject.SetActive(false);
         buttonManager.ClaimAllButton.gameObject.SetActive(false);
-        //deactivate spin button and claim rewards button
+        levelScrollView.SnapBackOnSpin();
         spinner.Spin();
     }
 
