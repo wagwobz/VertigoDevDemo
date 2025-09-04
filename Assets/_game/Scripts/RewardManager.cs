@@ -54,6 +54,11 @@ public class RewardManager : MonoBehaviour
             0 => silverSpinnerSprite,
             _ => bronzeSpinnerSprite,
         };
-        return (rewardSet, spinnerSprite, bronzePinSprite, multiplier);
+        var pinSprite = modulo switch
+        {
+            0 => silverPinSprite,
+            _ => bronzePinSprite
+        };
+        return (rewardSet, spinnerSprite, pinSprite, multiplier);
     }
 }
